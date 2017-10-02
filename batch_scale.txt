@@ -1,0 +1,15 @@
+
+// batch applies a scale bar to images in chosen folder from process-batch
+run("Set Scale...", "distance=1.75 known=1 pixel=1 unit=um global");
+
+ids=newArray(nImages);
+
+
+title = getTitle();
+run("Scale Bar...", "width=50 height=4 font=14 color=White background=None location=[Lower Left] bold");
+
+saveAs("Jpeg", "C:\\scalebar\\40x\\"+title);
+
+close(); 
+
+wait(500); 

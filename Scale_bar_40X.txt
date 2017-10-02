@@ -1,0 +1,20 @@
+
+
+
+// applies a scale bar to images taken with the microscope at current camera settings. 
+//parameter of set scal bar
+run("Set Scale...", "distance=1.75 known=1 pixel=1 unit=um global");
+ids=newArray(nImages);
+//process all opened N x image
+for (i=0;i<nImages;i++) {
+        selectImage(i+1);
+//output as original filename
+title = getTitle();
+//parameter of add scale bar
+run("Scale Bar...", "width=50 height=4 font=14 color=White background=None location=[Lower Left] bold");
+// output file extension and destination folder which need to be created manually
+saveAs("Jpeg", "C:\\scalebar\\40x\\"+title);
+close(); 
+//flash preview
+wait(500);
+} 
